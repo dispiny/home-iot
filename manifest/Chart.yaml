@@ -1,0 +1,7 @@
+apiVersion: v2
+name: home-iot
+description: Home IoT Helm charts
+
+type: application
+
+version: 1.0.0

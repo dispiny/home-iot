@@ -1,0 +1,3 @@
+image:
+  repository: ghcr.io/dispiny/home-iot
+  tag: v1.0.0
