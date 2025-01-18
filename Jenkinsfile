@@ -1,11 +1,17 @@
 pipeline {
   agent any
   environment {
-  VERSION = """${sh(
-                          returnStdout: true,
-                          script: 'cat VERSION'
-                      )}"""
+  VERSION = """
+  ${
+    sh(
+      returnStdout: true,
+      script: 'cat VERSION'
+    )
   }
+  
+  """
+  }
+
   stages {
     stage('Pre-Build') {
       steps {
@@ -14,7 +20,6 @@ pipeline {
           '''
         }
       }
-    }
 
     stage('Build') {
       steps {
@@ -35,7 +40,9 @@ pipeline {
         sh 'docker push ghcr.io/dispiny/home-iot:v$VERSION'
         sh '''#!/bin/bash
           rm -rf *
-          rm -rf .*'''
+          rm -rf .*
+        '''
+      }
     }
   }
 }
