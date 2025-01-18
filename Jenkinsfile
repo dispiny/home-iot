@@ -1,15 +1,10 @@
 pipeline {
   agent any
   environment {
-  VERSION = """
-  ${
-    sh(
-      returnStdout: true,
-      script: 'cat $VERSION'
-    )
-  }
-  
-  """
+  VERSION = """${sh(
+              returnStdout: true,
+              script: 'cat $VERSION'
+            )}"""
   }
 
   stages {
