@@ -44,8 +44,8 @@ pipeline {
       steps {
         sh '''#!/bin/bash
         echo $VERSION
-        sed -i "s|version:.*|version: $VERSION|g" backend-skills-repo/Chart.yaml
-        sed -i "s|tag:.*|tag: v$VERSION|g" backend-skills-repo/values.yaml
+        sed -i "s|version:.*|version: $VERSION|g" helm/Chart.yaml
+        sed -i "s|tag:.*|tag: v$VERSION|g" helm/values.yaml
         '''
       }
     }
@@ -72,7 +72,7 @@ pipeline {
         }
 
         sh '''
-          gh release create v$VERSION backend-skills-repo-$VERSION.tgz -t v$VERSION --generate-notes
+          gh release create v$VERSION home-iot-$VERSION.tgz -t v$VERSION --generate-notes
         '''
         sh '''#!/bin/bash
             rm -rf *.tgz
