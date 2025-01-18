@@ -70,7 +70,7 @@ pipeline {
         }
 
         sh '''
-          gh release create v$VERSION home-iot-$VERSION.tgz -t v$VERSION --generate-notes
+          gh release create v$VERSION ./helm/home-iot-$VERSION.tgz -t v$VERSION --generate-notes
         '''
         sh '''#!/bin/bash
             rm -rf *.tgz
