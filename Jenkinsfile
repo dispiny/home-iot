@@ -33,8 +33,6 @@ pipeline {
         }
         echo "VERSION: $VERSION"
         sh '''#!/bin/bash
-          rm -rf *
-          rm -rf .*
           docker rmi $(docker images -q)
         '''
       }
