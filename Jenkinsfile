@@ -30,12 +30,12 @@ pipeline {
           sh """
             echo $GIT_PASSWORD | docker login ghcr.io -u dispiny --password-stdin
           """
+        }
         sh 'echo $VERSION'
         sh 'docker push ghcr.io/dispiny/home-iot:v$VERSION'
         sh '''#!/bin/bash
-rm -rf *
-rm -rf .*'''
-      }
+          rm -rf *
+          rm -rf .*'''
     }
   }
 }
