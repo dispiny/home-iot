@@ -3,7 +3,7 @@ pipeline {
   environment {
   VERSION = """${sh(
               returnStdout: true,
-              script: 'cat $VERSION'
+              script: 'cat VERSION'
             )}"""
   }
 
