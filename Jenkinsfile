@@ -24,7 +24,7 @@ pipeline {
     stage('Build') {
       steps {
         sh '''#!/bin/bash
-          docker build -t ghcr.io/dispiny/home-iot:v$VERSION . 
+          docker buildx build -t ghcr.io/dispiny/home-iot:v$VERSION . 
         '''
       }
     }
