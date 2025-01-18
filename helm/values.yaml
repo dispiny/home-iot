@@ -3,7 +3,7 @@ image:
   tag: v1.0.0
 
 labels:
-  app:
+  app: home-iot
 
 service:
   blueServiceName: home-iot-rollout-blue

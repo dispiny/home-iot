@@ -8,7 +8,7 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: { { .Values.container.Port } }
+      targetPort: { { .Values.network.containerPort } }
 ---
 kind: Service
 apiVersion: v1
@@ -20,4 +20,4 @@ spec:
   ports:
     - protocol: { { .Values.network.serviceProtocol } }
       port: { { .Values.network.servicePort } }
-      targetPort: { { .Values.network.Port } }
+      targetPort: { { .Values.network.containerPort } }
