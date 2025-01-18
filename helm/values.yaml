@@ -1,0 +1,17 @@
+image:
+  repository: ghcr.io/dispiny/home-iot
+  tag: v1.0.0
+
+labels:
+  app:
+
+service:
+  blueServiceName: home-iot-rollout-blue
+  greenServiceName: home-iot-rollout-green
+
+network:
+  containerPort: 5000
+  servicePort: 80
+  serviceProtocol: TCP
+
+replicas: 2

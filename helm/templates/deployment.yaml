@@ -1,0 +1,61 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: home-iot-app
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: home-iot
+  template:
+    metadata:
+      labels:
+        app: home-iot
+    spec:
+      containers:
+      - name: home-iot
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: Always
+        env:
+          - name: USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: home-iot-secret
+                key: USERNAME
+          - name: PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: home-iot-secret
+                key: PASSWORD    
+          - name: APP_KEY
+            valueFrom:
+              secretKeyRef:
+                name: home-iot-secret
+                key: APP_KEY
+          - name: CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: home-iot-secret
+                key: CLIENT_ID     
+          - name: CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: home-iot-secret
+                key: CLIENT_SECRET
+          - name: PS5_URL
+            valueFrom:
+              secretKeyRef:
+                name: home-iot-secret
+                key: PS5_URL
+          - name: TV_URL
+            valueFrom:
+              secretKeyRef:
+                name: home-iot-secret
+                key: TV_URL
+        ports:
+        - containerPort: {{ .Values.network.containerPort }}
+  strategy:
+    blueGreen:
+      activeService: {{ .Values.service.blueServiceName }}
+      previewService: {{ .Values.service.greenServiceName }}
+      autoPromotionEnabled: true
