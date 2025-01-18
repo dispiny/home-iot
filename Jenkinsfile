@@ -10,7 +10,7 @@ pipeline {
     stage('Pre-Build') {
       steps {
         sh '''#!/bin/bash
-        withCredentials(bindings: [usernamePassword(credentialsId: '5edb4fde-dd7d-43d9-bcc4-d87afdc119c8', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
+        withCredentials(bindings: [usernamePassword(credentialsId: 'd36dc810-948b-4fc2-976a-558fe517ab6d', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
           sh """
             echo $GIT_PASSWORD | docker login ghcr.io -u dispiny --password-stdin
           """
