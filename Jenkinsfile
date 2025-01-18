@@ -32,7 +32,7 @@ pipeline {
         withCredentials(bindings: [usernamePassword(credentialsId: 'd36dc810-948b-4fc2-976a-558fe517ab6d', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
           sh """
             echo $GIT_PASSWORD | docker login ghcr.io -u $GIT_USERNAME --password-stdin
-            sh 'docker push ghcr.io/dispiny/home-iot:v$VERSION'
+            docker push ghcr.io/dispiny/home-iot:v$VERSION
           """
         }
         echo "VERSION: $VERSION"
