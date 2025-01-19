@@ -216,7 +216,7 @@ pipeline {
 
           git add index.yaml
           git commit -m "Update(index.yaml): Version Up -> v$VERSION"
-          git push origin helm
+          git push origin master
         '''
       }
     }
