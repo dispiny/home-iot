@@ -12,5 +12,6 @@ network:
   containerPort: 5000
   servicePort: 80
   serviceProtocol: TCP
-
+  hostDns: api.dispiny.life
+  
 replicas: 2
