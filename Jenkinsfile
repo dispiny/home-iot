@@ -71,8 +71,8 @@ pipeline {
 
         sh '''
           NAME=$(gh release view v$VERSION --json assets --jq \'.assets[].name\' || echo nope)
-          isFiles$(echo $NAME | grep tgz | wc -l)
-
+          isFiles=$(echo $NAME | grep tgz | wc -l)
+          echo $isFiles
           if [ $isFiles -eq 0 ]; then
             gh release create v$VERSION ./helm/home-iot-$VERSION.tgz -t v$VERSION --generate-notes
           elif [ $isFiles -eq 1 ]; then
