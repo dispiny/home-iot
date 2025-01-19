@@ -79,13 +79,6 @@ pipeline {
             gh release upload v$VERSION ./helm/home-iot-$VERSION.tgz
           fi
         '''
-        sh '''#!/bin/bash
-            rm -rf *.tgz
-            git add -A 
-            git commit -m "$VERSION commit!"
-            git push origin master
-            rm -rf *
-            rm -rf .*'''
       }
     }
   }
