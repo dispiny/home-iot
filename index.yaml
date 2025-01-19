@@ -2,9 +2,9 @@ apiVersion: v1
 entries:
   home-iot:
   - apiVersion: v2
-    created: "2025-01-19T10:05:23.742100246Z"
+    created: "2025-01-19T11:05:35.960053916Z"
     description: Home IoT Helm charts
-    digest: 743db9260a07db93bc6e0b8730610e80e7965fc7ee4b0f041c18c5e9ea3b396b
+    digest: 1519f4b2b5176a2ba63b4551fa7b9964716e169d5fe056f2ce0410579a6e7d4c
     name: home-iot
     type: application
     urls:
@@ -28,4 +28,4 @@ entries:
     urls:
     - https://github.com/dispiny/home-iot/releases/download/v1.0.1/home-iot-1.0.1.tgz
     version: 1.0.1
-generated: "2025-01-19T10:05:23.741754386Z"
+generated: "2025-01-19T11:05:35.959737715Z"
