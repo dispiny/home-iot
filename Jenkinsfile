@@ -82,6 +82,7 @@ pipeline {
           fi
 
           rm -rf helm/*.tgz
+          sed -i 's|helm/||g' index.yaml
           git add -A
           git commit -m "Update(index.yaml): Version Up -> v$VERSION"
           git push origin master
