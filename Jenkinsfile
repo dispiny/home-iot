@@ -83,7 +83,7 @@ pipeline {
 
           rm -rf helm/*.tgz
           git add -A
-          git commit -m 'init'
+          git commit -m "Update(index.yaml): Version Up -> v$VERSION"
           git push origin master
         '''
       }
