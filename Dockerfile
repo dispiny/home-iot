@@ -11,12 +11,12 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install werkzeug
 # Expose the port that Flask will run on
-EXPOSE 5001
+EXPOSE 5000
 
 # Define environment variables
-ENV FLASK_APP=app.py
+ENV FLASK_APP=main.py
 ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_RUN_PORT=5001
+ENV FLASK_RUN_PORT=5000
 
 # Run the Flask app
 CMD ["flask", "run"]
