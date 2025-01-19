@@ -76,7 +76,8 @@ pipeline {
           if [ $isFiles -eq 0 ]; then
             gh release create v$VERSION ./helm/home-iot-$VERSION.tgz -t v$VERSION --generate-notes
           elif [ $isFiles -eq 1 ]; then
-            gh release upload v$VERSION ./helm/home-iot-$VERSION.tgz
+            gh release delete v$VERSION -y
+            gh release create v$VERSION ./helm/home-iot-$VERSION.tgz -t v$VERSION --generate-notes
           fi
         '''
       }
