@@ -1,22 +1,6 @@
-# apiVersion: secrets.hashicorp.com/v1beta1
-# kind: VaultAuth
-# metadata:
-#   name: static-auth
-#   namespace: default
-# spec:
-#   kubernetes:
-#     audiences:
-#     - vault
-#     role: admin
-#     serviceAccount: vault
-#     tokenExpirationSeconds: 600
-#   method: kubernetes
-#   mount: kubernetes
-
 apiVersion: secrets.hashicorp.com/v1beta1
 kind: VaultConnection
 metadata:
-  namespace: default
   name: vault-connection
 spec:
   # address to the Vault server.
