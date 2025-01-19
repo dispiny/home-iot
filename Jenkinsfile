@@ -52,7 +52,8 @@ pipeline {
       steps {
         sh '''#!/bin/bash
           helm package helm --destination helm/
-          helm repo index . --merge index.yaml --url https://github.com/dispiny/home-iot/releases/download/v$VERSION/'''
+          helm repo index . --merge index.yaml --url https://github.com/dispiny/home-iot/releases/download/v$VERSION/
+          '''
       }
     }
 
@@ -79,6 +80,11 @@ pipeline {
             gh release delete v$VERSION -y
             gh release create v$VERSION ./helm/home-iot-$VERSION.tgz -t v$VERSION --generate-notes
           fi
+
+          rm -rf helm/*.tgz
+          git add -A
+          git commit -m 'init'
+          git push origin master
         '''
       }
     }
