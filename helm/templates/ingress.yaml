@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: home-iot-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: {{ .Values.network.hostDNS }}
+      http:
+        paths:
+          - path: /v1/remote
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.service.serviceName }}
+                port:
+                  number: {{ .Values.network.servicePort }}
