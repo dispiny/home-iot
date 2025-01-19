@@ -1,23 +1,11 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: { { .Values.service.blueServiceName } }
+  name: {{ .Values.service.serviceName }}
 spec:
   selector:
     app: home-iot
   ports:
     - protocol: TCP
       port: 80
-      targetPort: { { .Values.network.containerPort } }
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: { { .Values.service.greenServiceName } }
-spec:
-  selector:
-    app: home-iot
-  ports:
-    - protocol: { { .Values.network.serviceProtocol } }
-      port: { { .Values.network.servicePort } }
-      targetPort: { { .Values.network.containerPort } }
+      targetPort: {{ .Values.network.Port }}

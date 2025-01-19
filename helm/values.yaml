@@ -3,11 +3,10 @@ image:
   tag: v1.0.0
 
 labels:
-  app: home-iot
+  app:
 
 service:
-  blueServiceName: home-iot-rollout-blue
-  greenServiceName: home-iot-rollout-green
+  serviceName: home-iot-svc
 
 network:
   containerPort: 5000

@@ -1,5 +1,5 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: home-iot-app
 spec:
@@ -54,8 +54,3 @@ spec:
                 key: TV_URL
         ports:
         - containerPort: {{ .Values.network.containerPort }}
-  strategy:
-    blueGreen:
-      activeService: {{ .Values.service.blueServiceName }}
-      previewService: {{ .Values.service.greenServiceName }}
-      autoPromotionEnabled: true
